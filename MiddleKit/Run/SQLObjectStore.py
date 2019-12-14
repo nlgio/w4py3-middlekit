@@ -1098,3 +1098,18 @@ class DateAttr(object):
         if not isinstance(value, str):
             value = str(value).split(None, 1)[0]
         return "'%s'" % value
+
+
+
+def quote(val):
+    return val.replace("'","''")
+#2019-01-12, 2019-11-28 not strictly needed as BaseAttr handles this via repr
+# necessarity only arises if Enum contains a tick
+class EnumAttr(object):
+    def sqlForNonNone(self, value):
+        try:
+            int(value) #usesExternalSQLEnums
+            return str(value)
+        except:
+            return "'%s'" % quote(value)
+        

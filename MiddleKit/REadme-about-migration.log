@@ -20,10 +20,14 @@ TBD: MiscUtils/MixIn.py needs patch or clone?
 
 Design/SQLGenerator swapped not null / default (Firebird 2/3 needs this)
 
+Run/SQLObjectStore class ENum not strictly necessary (assume enum dont carry ticks)                                                                                   
 TBD: 2 Fails MKTypeValueChecking :see PythonGenerator, cant work because there no longs anymore
 Problem with long/int, long was marker for "ObjRefType"
 
-Tested with python3.6 und python3.8 (windows only)
+Tested with python3.6 und python3.8 (3.8 windows only)
 
 TBD: from . import FixPath ##is this still needed? PYTHONPATH, venv
+  mostly replaced with import FIxPath                                    
 TBD: WebBrowser MixIn deactivated
+TBD: Access to MiscUtils, WebUtils
+ -- import sys; sys.path.insert(1, path_to_webware)                                  
